@@ -6,56 +6,39 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AToggle {
+        "label": string;
+        "type": string;
+        "value": any;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAToggleElement extends Components.AToggle, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAToggleElement: {
+        prototype: HTMLAToggleElement;
+        new (): HTMLAToggleElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "a-toggle": HTMLAToggleElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AToggle {
+        "label"?: string;
+        "onValueChange"?: (event: CustomEvent<any>) => void;
+        "type"?: string;
+        "value"?: any;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "a-toggle": AToggle;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "a-toggle": LocalJSX.AToggle & JSXBase.HTMLAttributes<HTMLAToggleElement>;
         }
     }
 }

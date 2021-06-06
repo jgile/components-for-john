@@ -4,18 +4,23 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"/>
   <title>Stencil Component Starter</title>
-  <link href="/tailwind.css" rel="stylesheet"/>
+  <link href="/build/components-for-john.css" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   <script type="module" src="/build/components-for-john.esm.js"></script>
   <script nomodule src="/build/components-for-john.js"></script>
 </head>
 <body>
-<div x-data="{val: 'hi'}">
-  <my-component
-    class="bg-blue-500 p-5 block"
-    label="Stencil"
-    x-model="val"
-  />
+<div class="ml-auto max-w-3xl py-10">
+  <div class=" py-10" x-data="{val: false}">
+    <a-toggle x-model="val"></a-toggle>
+    <div x-text="val"></div>
+  </div>
+  <div class=" py-10" x-data="{val: 'Hello World'}">
+    <a-tooltip>
+      <button>Toolip</button>
+    </a-tooltip>
+  </div>
+
 </div>
 </body>
 </html>

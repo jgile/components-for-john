@@ -1,7 +1,5 @@
 import {Config} from '@stencil/core';
 import {postcss} from "@stencil/postcss";
-import autoprefixer from "autoprefixer";
-import tailwindcss from "tailwindcss";
 
 export const config: Config = {
   namespace: 'components-for-john',
@@ -18,17 +16,17 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
-      copy: [
-        {src: 'tailwind.css'}
-      ]
+      serviceWorker: null,
     },
   ],
+  globalStyle: './src/app.css',
   plugins: [
     postcss({
       plugins: [
-        tailwindcss("./tailwind.config.js"),
-        autoprefixer(),
+        require('postcss-import'),
+        require('postcss-nested'),
+        require('tailwindcss'),
+        require('autoprefixer'),
       ]
     })
   ]

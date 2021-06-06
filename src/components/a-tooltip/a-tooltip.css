@@ -1,0 +1,15 @@
+.a-tooltip {
+  @apply transition transition-all bg-white overflow-hidden shadow rounded-lg absolute hidden transform group-hover:block;
+}
+
+.a-tooltip-top {
+  @apply bottom-full left-1/2 -translate-x-1/2;
+}
+
+.a-tooltip-wrapper {
+  @apply relative;
+}
+
+.a-tooltip-inner {
+  @apply px-2;
+}

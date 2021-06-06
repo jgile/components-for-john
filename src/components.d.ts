@@ -6,39 +6,112 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface ASelect {
+    }
     interface AToggle {
         "label": string;
-        "type": string;
         "value": any;
+    }
+    interface ATooltip {
+        "on"?: string;
+        "position"?: string;
+        /**
+          * Set text
+         */
+        "text"?: string;
+    }
+    interface MyComponent {
+        /**
+          * The first name
+         */
+        "first": string;
+        /**
+          * The last name
+         */
+        "last": string;
+        /**
+          * The middle name
+         */
+        "middle": string;
     }
 }
 declare global {
+    interface HTMLASelectElement extends Components.ASelect, HTMLStencilElement {
+    }
+    var HTMLASelectElement: {
+        prototype: HTMLASelectElement;
+        new (): HTMLASelectElement;
+    };
     interface HTMLAToggleElement extends Components.AToggle, HTMLStencilElement {
     }
     var HTMLAToggleElement: {
         prototype: HTMLAToggleElement;
         new (): HTMLAToggleElement;
     };
+    interface HTMLATooltipElement extends Components.ATooltip, HTMLStencilElement {
+    }
+    var HTMLATooltipElement: {
+        prototype: HTMLATooltipElement;
+        new (): HTMLATooltipElement;
+    };
+    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    }
+    var HTMLMyComponentElement: {
+        prototype: HTMLMyComponentElement;
+        new (): HTMLMyComponentElement;
+    };
     interface HTMLElementTagNameMap {
+        "a-select": HTMLASelectElement;
         "a-toggle": HTMLAToggleElement;
+        "a-tooltip": HTMLATooltipElement;
+        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface ASelect {
+    }
     interface AToggle {
         "label"?: string;
-        "onValueChange"?: (event: CustomEvent<any>) => void;
-        "type"?: string;
+        "onInput"?: (event: CustomEvent<any>) => void;
         "value"?: any;
     }
+    interface ATooltip {
+        "on"?: string;
+        "position"?: string;
+        /**
+          * Set text
+         */
+        "text"?: string;
+    }
+    interface MyComponent {
+        /**
+          * The first name
+         */
+        "first"?: string;
+        /**
+          * The last name
+         */
+        "last"?: string;
+        /**
+          * The middle name
+         */
+        "middle"?: string;
+    }
     interface IntrinsicElements {
+        "a-select": ASelect;
         "a-toggle": AToggle;
+        "a-tooltip": ATooltip;
+        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "a-select": LocalJSX.ASelect & JSXBase.HTMLAttributes<HTMLASelectElement>;
             "a-toggle": LocalJSX.AToggle & JSXBase.HTMLAttributes<HTMLAToggleElement>;
+            "a-tooltip": LocalJSX.ATooltip & JSXBase.HTMLAttributes<HTMLATooltipElement>;
+            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }

@@ -1,4 +1,4 @@
-import {Component, Host, h, Element, Prop, Event, EventEmitter, Watch} from '@stencil/core';
+import {Component, h, Element, Prop, Event, EventEmitter, Watch} from '@stencil/core';
 import classNames from "classnames";
 
 @Component({
@@ -26,17 +26,22 @@ export class AToggle {
 
   render() {
     return (
-      <Host>
+      <div class="a-toggle">
         <div
           role="switch"
           aria-checked="true"
           onClick={this.inputChanged.bind(this)}
-          class={classNames('a-toggle', {'a-toggle-active': this.value})}
+          class={classNames('a-toggle-inner', {'a-toggle-active': this.value})}
         >
           <input type="checkbox" value={this.value} class="hidden" onChange={this.inputChanged.bind(this)}/>
           <span aria-hidden="true" class={classNames('a-toggle-nub', {'translate-x-5': this.value, 'translate-x-0': !this.value})}></span>
         </div>
-      </Host>
+        {this.label &&
+        <label class="a-toggle-label" onClick={this.inputChanged.bind(this)}>
+          {this.label}
+        </label>
+        }
+      </div>
     );
   }
 }

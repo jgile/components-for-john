@@ -4,7 +4,6 @@ import {Component, Prop, h} from "@stencil/core";
   tag: 'a-tooltip'
 })
 export class ATooltip {
-  /** Set text */
   @Prop() text?: string = "Tooltip";
   @Prop() on?: string = "hover";
   @Prop() position?: string = "top";

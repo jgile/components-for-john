@@ -15,24 +15,7 @@ export namespace Components {
     interface ATooltip {
         "on"?: string;
         "position"?: string;
-        /**
-          * Set text
-         */
         "text"?: string;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
 }
 declare global {
@@ -54,17 +37,10 @@ declare global {
         prototype: HTMLATooltipElement;
         new (): HTMLATooltipElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "a-select": HTMLASelectElement;
         "a-toggle": HTMLAToggleElement;
         "a-tooltip": HTMLATooltipElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -78,30 +54,12 @@ declare namespace LocalJSX {
     interface ATooltip {
         "on"?: string;
         "position"?: string;
-        /**
-          * Set text
-         */
         "text"?: string;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
     }
     interface IntrinsicElements {
         "a-select": ASelect;
         "a-toggle": AToggle;
         "a-tooltip": ATooltip;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -111,7 +69,6 @@ declare module "@stencil/core" {
             "a-select": LocalJSX.ASelect & JSXBase.HTMLAttributes<HTMLASelectElement>;
             "a-toggle": LocalJSX.AToggle & JSXBase.HTMLAttributes<HTMLAToggleElement>;
             "a-tooltip": LocalJSX.ATooltip & JSXBase.HTMLAttributes<HTMLATooltipElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
